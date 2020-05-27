@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.StudentMapper">
+    <resultMap type="Student" id="StudentData">
+        <id property="stu_id" column="STUDENT_ID" />
+        <result property="name" column="NAME" />
+        <result property="createTime" column="CREATE_TIME" />
+        <result property="updateTime" column="UPDATE_TIME" />
+    </resultMap>
+
+
+    <select id="selectAllStu" resultMap="StudentData">
+        select * from s_student
+    </select>
+
+    <insert id="addStudent">
+         INSERT INTO s_student(STUDENT_ID,NAME,CREATE_TIME,UPDATE_TIME) values(#{student_id},#{name},#{create_time},#{update_time})
+    </insert>
+
+
+
+</mapper>

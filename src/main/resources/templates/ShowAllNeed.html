@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>展示需要提交作业</title>
+    <script src="http://code.jquery.com/jquery-1.4.1.js"></script>
+</head>
+<body>
+<table align="center" width="960" border="1"
+       bgcolor="white" cellpadding="1" cellspacing="1">
+
+    <thead>
+    <tr align="center" bgcolor="#7fffd4" height="50">
+        <td>作业编号</td>
+        <td>作业标题</td>
+        <td>作业内容</td>
+        <td>创建时间</td>
+        <td>更新时间</td>
+    </tr>
+    </thead>
+
+
+    <tr th:each="needhomework,memberStat:${list}">
+        <td th:text="${needhomework.homework_id}"/>
+        <td th:text="${needhomework.title}"/>
+        <td th:text="${needhomework.content}"/>
+        <td th:text="${needhomework.createTime}"/>
+        <td th:text="${needhomework.updateTime}"/>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.StudentHomeworkMapper">
+    <resultMap type="StudentHomework" id="StudentHomeworkData">
+        <id property="id" column="ID" />
+        <result property="studentId" column="STUDENT_ID" />
+        <result property="homeworkId" column="HOMEWORK_ID" />
+        <result property="homeworkTitle" column="HOMEWORK_TITLE" />
+        <result property="homeworkContent" column="HOMEWORK_CONTENT" />
+        <result property="createTime" column="CREATE_TIME" />
+        <result property="updateTime" column="UPDATE_TIME" />
+    </resultMap>
+
+
+    <select id="selectAll" resultMap="StudentHomeworkData">
+        select * from s_student_homework
+    </select>
+
+    <insert id="addStudentHomework">
+         INSERT INTO s_student_homework(ID,STUDENT_ID,HOMEWORK_ID,HOMEWORK_TITLE,HOMEWORK_CONTENT,CREATE_TIME,UPDATE_TIME)
+         values(#{id},#{home_id},#{stu_id},#{title},#{content},#{create_time},#{update_time})
+    </insert>
+
+    <select id="selectmy" resultMap="StudentHomeworkData">
+        select * from s_student_homework where student_id=#{my_id}
+    </select>
+    <select id="selectbystu" resultMap="StudentHomeworkData">
+        select * from s_student_homework where student_id=#{stu_id}
+    </select>
+    <select id="selectbyhome" resultMap="StudentHomeworkData">
+        select * from s_student_homework where homework_id=#{home_id}
+    </select>
+    <select id="selectbycross" resultMap="StudentHomeworkData">
+        select * from s_student_homework where student_id=#{stu_id} and homework_id=#{home_id}
+    </select>
+
+</mapper>

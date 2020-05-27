@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>添加作业</title>
+    <link id="css" rel="stylesheet" type="text/css" href="../style.css"  />
+</head>
+<body>
+<form th:action="@{/teacher/afteraddneed}" method="post" role="from" class="smart-green">
+        <h1>作业信息
+            <span>输入需要布置的作业信息</span>
+        </h1>
+
+        <label>
+            <span>作业序号：</span>
+            <input id="h_id" type="text" value="" name="h_id" placeholder="请输入作业序号"/>
+            <div class="error-msg"></div>
+        </label>
+
+        <label>
+            <span>作业标题 :</span>
+            <input id="h_title" type="text" value="" name="h_title" placeholder="请输入作业标题"/>
+            <div class="error-msg"></div>
+        </label>
+
+        <label>
+            <span>作业内容 :</span>
+            <textarea id="h_content" name="h_content"  placeholder="请输入作业内容"></textarea>
+            <div class="error-msg"></div>
+        </label>
+       
+        <label>
+            <span>&nbsp;</span>
+            <input type="submit" class="button" value="提交"/>
+        </label>
+       
+</form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>学生登录</title>
+    <link id="css" rel="stylesheet" type="text/css" href="../style.css"  />
+    <script type="text/javascript">
+        /***
+         * @param {string} cookieName Cookie名称
+         * @param {string} cookieValue Cookie值
+         * @param {number} nDays Cookie过期天数
+         */
+        function SetCookie(cookieName,cookieValue) {
+            // /*当前日期*/
+            // var today = new Date();
+            // /*Cookie过期时间*/
+            // var expire = new Date();
+            // /*如果未设置nDays参数或者nDays为0，取默认值1*/
+            // if(nDays == null || nDays == 0) nDays = 1;
+            // /*计算Cookie过期时间*/
+            // expire.setTime(today.getTime() + 3600000 * 24 * nDays);
+            /*设置Cookie值*/
+            document.cookie = cookieName + "=" + escape(cookieValue);
+
+        }
+        function slogin() {
+            var s_id = $("s_id").value;
+            var s_name = $("s_name").value;
+            // /*是否选中1天内无需登录*/
+            // var save = $("save").checked
+            SetCookie("s_id",s_id);
+        }
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+
+<form th:action="@{/student/stuOperation}" method="post" role="from" class="smart-green" >
+        <h1>学生登录
+            <span>输入学生信息</span>
+        </h1>
+        <label>
+            <span>学生学号：</span>
+            <input id="s_id" type="text" name="my_id"  class="error" placeholder="学生序号"/>
+            <span>学生姓名：</span>
+            <input id="s_name" type="text" name="my_name"  class="error" placeholder="学生姓名"/>
+            <div class="error-msg"></div>
+        </label>
+
+        <label>
+            <span>&nbsp;</span>
+            <input type="submit" class="button" onclick="slogin()" value="提交"/>
+        </label>
+       
+</form>
+
+</body>
+</html>

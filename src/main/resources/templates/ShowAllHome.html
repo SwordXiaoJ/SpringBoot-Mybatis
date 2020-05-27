@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>展示作业</title>
+    <script src="http://code.jquery.com/jquery-1.4.1.js"></script>
+</head>
+<body>
+<table align="center" width="960" border="1"
+       bgcolor="white" cellpadding="1" cellspacing="1">
+
+    <thead>
+    <tr align="center" bgcolor="#7fffd4" height="50">
+        <td>ID</td>
+        <td>学生学号</td>
+        <td>作业编号</td>
+        <td>作业标题</td>
+        <td>作业内容</td>
+        <td>创建时间</td>
+        <td>更新时间</td>
+    </tr>
+    </thead>
+
+
+    <tr th:each="studenthomework,memberStat:${list}">
+        <td th:text="${studenthomework.id}"/>
+        <td th:text="${studenthomework.studentId}"/>
+        <td th:text="${studenthomework.homeworkId}"/>
+        <td th:text="${studenthomework.homeworkTitle}"/>
+        <td th:text="${studenthomework.homeworkContent}"/>
+        <td th:text="${studenthomework.createTime}"/>
+        <td th:text="${studenthomework.updateTime}"/>
+    </tr>
+</table>
+
+</body>
+</html>

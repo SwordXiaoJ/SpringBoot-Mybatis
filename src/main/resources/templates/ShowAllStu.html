@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>展示学生</title>
+    <script src="http://code.jquery.com/jquery-1.4.1.js"></script>
+</head>
+<body>
+<table align="center" width="960" border="1"
+       bgcolor="white" cellpadding="1" cellspacing="1">
+
+    <thead>
+    <tr align="center" bgcolor="#7fffd4" height="50">
+        <td>学生学号</td>
+        <td>学生姓名</td>
+        <td>创建时间</td>
+        <td>更新时间</td>
+    </tr>
+    </thead>
+
+
+    <tr th:each="student,memberStat:${list}">
+        <td th:text="${student.stu_id}"/>
+        <td th:text="${student.name}"/>
+        <td th:text="${student.createTime}"/>
+        <td th:text="${student.updateTime}"/>
+
+    </tr>
+</table>
+
+</body>
+</html>

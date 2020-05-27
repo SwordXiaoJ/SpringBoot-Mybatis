@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.NeedHomeworkMapper">
+    <resultMap type="NeedHomework" id="NeedHomeworkData">
+        <id property="homework_id" column="HOMEWORK_ID" />
+        <result property="title" column="TITLE" />
+        <result property="content" column="CONTENT" />
+        <result property="createTime" column="CREATE_TIME" />
+        <result property="updateTime" column="UPDATE_TIME" />
+    </resultMap>
+
+
+    <select id="selectAllNeed" resultMap="NeedHomeworkData">
+        select * from s_homework
+    </select>
+
+    <insert id="addNeedHomework">
+         INSERT INTO s_homework(HOMEWORK_ID,TITLE,CONTENT,CREATE_TIME,UPDATE_TIME) values(#{homework_id},#{title},#{content},#{create_time},#{update_time})
+    </insert>
+
+
+
+</mapper>

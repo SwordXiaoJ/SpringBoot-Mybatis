@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <title>提交作业</title>
+    <link id="css" rel="stylesheet" type="text/css" href="../style.css"  />
+       <script>
+    /***
+     *读取指定的Cookie值
+     *@param {string} cookieName Cookie名称
+     */
+    function ReadCookie(cookieName) {
+        var theCookie = document.cookie;
+        var s= theCookie.indexOf("=");
+        var length=theCookie.length;
+        var s_id=theCookie.substring(s+1,length);
+        return s_id;
+
+        // var ind = theCookie.indexOf(cookieName);
+        // if(ind==-1 || cookieName=="") return "";
+        // var ind1 = theCookie.indexOf(';',ind);
+        // if(ind1==-1) ind1 = theCookie.length;
+        // /*读取Cookie值*/
+        // return unescape(theCookie.substring(ind+cookieName.length+1,ind1));
+    }
+
+    function $(id) {
+        return document.getElementById(id);
+    }
+
+    function init() {
+        var stu_id = ReadCookie("s_id");
+        document.getElementById("s_id").value=stu_id;
+    }
+</script>
+
+
+</head>
+<body onload="init()">
+
+<form th:action="@{/student/aftersubmithome}" method="post" role="from" class="smart-green">
+        <h1>作业信息
+            <span>输入需要提交的作业信息</span>
+        </h1>
+        <label>
+            <span>学生学号：</span>
+            <input id="s_id" type="text"  name="s_id"  class="error"/>
+            <div class="error-msg"></div>
+        </label>
+
+        <label>
+            <span>作业序号：</span>
+            <input id="h_id" type="text" value="" name="h_id" placeholder="请输入作业序号"/>
+            <div class="error-msg"></div>
+        </label>
+
+        <label>
+            <span>作业标题 :</span>
+            <input id="h_title" type="text" value="" name="h_title" placeholder="请输入作业标题"/>
+            <div class="error-msg"></div>
+        </label>
+
+        <label>
+            <span>作业内容 :</span>
+            <textarea id="h_content" name="h_content"  placeholder="请输入作业内容"></textarea>
+            <div class="error-msg"></div>
+        </label>
+       
+        <label>
+            <span>&nbsp;</span>
+            <input type="submit" class="button" value="提交"/>
+        </label>
+       
+</form>
+
+
+</body>
+</html>
